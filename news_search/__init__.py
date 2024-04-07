@@ -1,0 +1,1 @@
+from news_search.query import query
