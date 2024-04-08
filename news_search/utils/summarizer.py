@@ -2,7 +2,7 @@ from transformers import BartForConditionalGeneration, BartTokenizer, pipeline, 
 from typing import List, Text
 import torch
 
-def generate_summary(text: str, lang: str) -> List[Text]:
+def generate_summary(text: str, lang: str) -> Text:
 
     if lang == "en":
         model_name = "sshleifer/distilbart-cnn-12-6"
@@ -32,7 +32,7 @@ def generate_summary(text: str, lang: str) -> List[Text]:
         summary_text = summary[0]['summary_text']
 
 
-    return [summary_text]
+    return summary_text
 
 def get_summary(result, lang: str):
     headlines = [article['title'] for article in result]
