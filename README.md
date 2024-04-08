@@ -7,6 +7,15 @@ b) A CSV file containing the full list of titles, URLs, and publication dates of
 
 c) An automatically generated summary of the top-15 article headlines, along with a list of named entities mentioned in those headlines, sorted by frequency.
 
+## Installation
+Clone or download the repository containing the application code to your local machine.
+
+Navigate to the directory where the application code is located.
+
+Install the required dependencies by executing:
+```python
+>>> pip install -r requirements.txt
+```
 ## API
 The model uses Newsapi API. One can get the API key from here: https://newsapi.org/register
 

@@ -3,6 +3,12 @@ from collections import Counter
 from typing import List
 
 def sort_ner(result, lang: str) -> List:
+    '''
+    :param result:
+    :param lang:
+
+    This function captures named entities and sorts them by their freq
+    '''
     # Extract named entities from headlines
     headlines = [article['title'] for article in result]
     if lang == "en":

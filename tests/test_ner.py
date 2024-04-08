@@ -3,6 +3,9 @@ from news_search.utils.ner import sort_ner
 
 
 class TestSortNER(unittest.TestCase):
+    '''
+    This is unit test for NER function.
+    '''
     def setUp(self):
         # Sample test data
         self.result_en = [
