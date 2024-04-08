@@ -2,7 +2,7 @@ from datetime import datetime, timedelta
 from newsapi import NewsApiClient
 
 
-def search_news(topic: str, api_key: str, lang: str = "en"):
+def search_news(topic: str, api_key: str, lang: str = "en", max_news: int = 15):
     # Your function implementation
 
     # Initialize News API client
@@ -21,7 +21,7 @@ def search_news(topic: str, api_key: str, lang: str = "en"):
 
     # Extract relevant information from articles
     result = []
-    for article in articles['articles'][:1]:
+    for article in articles['articles'][:max_news]:
         result.append({
             'title': article['title'],
             'url': article['url'],

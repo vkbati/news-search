@@ -15,7 +15,7 @@ def generate_summary(text: str, lang: str) -> List[Text]:
         summarizer = pipeline("summarization", model=model, tokenizer=tokenizer, device=0 if device == 'cuda' else -1)
 
         # Generate summary
-        summary = summarizer(text, max_length=150, min_length=30)
+        summary = summarizer(text, max_length=15, min_length=5)
         summary_text = summary[0]['summary_text']
     elif lang == "de":
         model_name = "Shahm/bart-german"
@@ -28,7 +28,7 @@ def generate_summary(text: str, lang: str) -> List[Text]:
         summarizer = pipeline("summarization", model=model, tokenizer=tokenizer, device=0 if device == 'cuda' else -1)
 
         # Generate summary
-        summary = summarizer(text, max_length=150, min_length=30)
+        summary = summarizer(text, max_length=15, min_length=5)
         summary_text = summary[0]['summary_text']
 
 
