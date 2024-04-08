@@ -1,5 +1,5 @@
 import news_search
-api_key = "a82492b6f44d45a685e1712f3e644552"
+api_key = "YOUR API"
 
 eng_query = news_search.query("bitcoin", api_key=api_key, lang="en", max_news=1)
 ger_query = news_search.query("bitcoin", api_key=api_key, lang="de", max_news=2)
