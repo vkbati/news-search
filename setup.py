@@ -8,7 +8,9 @@ setup(
         'transformers',
         'torch',
         'newsapi-python',
-        'spacy'
+        'spacy',
+        'spacy-model-en_core_web_sm',
+        'spacy-model-de_core_news_sm',
     ],
     entry_points={
         'console_scripts': [
