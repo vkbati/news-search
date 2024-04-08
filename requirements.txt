@@ -2,3 +2,5 @@ transformers
 torch
 newsapi-python
 spacy
+spacy-model-en_core_web_sm
+spacy-model-de_core_news_sm
