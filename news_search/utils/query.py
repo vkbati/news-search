@@ -1,4 +1,4 @@
-from news_search.utils import generate_csv, ner, summarizer, search
+from news_search.utils import generate_csv, search, summarizer, ner
 from typing import List, Dict
 def query(topic: str, api_key: str, lang: str = "en", max_news: int = 15)-> List[Dict]:
     '''
