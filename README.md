@@ -16,7 +16,7 @@ Install the required dependencies by executing:
 ```python
 >>> pip install -r requirements.txt
 ```
-## API
+## API Requirement
 The model uses Newsapi API. One can get the API key from here: https://newsapi.org/register
 
 ## Usage
@@ -30,7 +30,10 @@ One can also adjust the amount of news articles (defaults to `15`)
 ```python
 >>> news_search.query("bitcoin", api_key=api_key, lang="en", max_news=1)
 ```
-
+Example bash usage
+```bash
+python main.py --topic NLP --lang de --max_news 30
+```
 ## Languages
 The `news_search` module currently supports the following languages:
 
