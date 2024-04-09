@@ -1,1 +1,1 @@
-from news_search.query import query
+from news_search.utils.query import query
