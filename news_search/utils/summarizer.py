@@ -1,6 +1,6 @@
 from transformers import BartForConditionalGeneration, BartTokenizer, pipeline, BertTokenizer, BertModel
 from typing import List, Text
-import torch
+
 
 def generate_summary(text: str, lang: str) -> Text:
     '''
@@ -14,33 +14,27 @@ def generate_summary(text: str, lang: str) -> Text:
         '''
         English
         '''
-        model_name = "sshleifer/distilbart-cnn-12-6"
-        # Check if GPU is available and move model to GPU if it is
-        device = "cuda" if torch.cuda.is_available() else "cpu"
-        tokenizer = BartTokenizer.from_pretrained(model_name)
-        model = BartForConditionalGeneration.from_pretrained(model_name).to(device)
-
         # Define the summarization pipeline with BART model
-        summarizer = pipeline("summarization", model=model, tokenizer=tokenizer, device=0 if device == 'cuda' else -1)
-
-        # Generate summary
-        summary = summarizer(text, max_length=15, min_length=5)
+        summarizer = pipeline("summarization", model="ubikpt/t5-small-finetuned-cnn")
+        text2sum = "summarize: " + text
+        words = text.split()
+        max_length = len(words) + 2
+        min_lenth = len(words) - 2
+        summary = summarizer(text2sum, max_length=max_length, min_length=min_lenth)
         summary_text = summary[0]['summary_text']
     elif lang == "de":
         '''
         German
         '''
-        model_name = "Shahm/bart-german"
-        # Check if GPU is available and move model to GPU if it is
-        device = "cuda" if torch.cuda.is_available() else "cpu"
-        tokenizer = BartTokenizer.from_pretrained(model_name)
-        model = BartForConditionalGeneration.from_pretrained(model_name).to(device)
 
-        # Define the summarization pipeline with BART model
-        summarizer = pipeline("summarization", model=model, tokenizer=tokenizer, device=0 if device == 'cuda' else -1)
 
+        words = text.split()
+        max_length = len(words) + 2
+        min_lenth = len(words) - 2
+        summarizer = pipeline("summarization", model="Shahm/t5-small-german")
+        text2sum = "summarize: " + text
         # Generate summary
-        summary = summarizer(text, max_length=15, min_length=5)
+        summary = summarizer(text2sum, max_length=max_length, min_length=min_lenth)
         summary_text = summary[0]['summary_text']
 
 
